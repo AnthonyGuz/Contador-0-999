@@ -1,0 +1,155 @@
+//Contador de 0-999
+
+int A=13;
+int B=12;
+int C=11;
+int D=10;
+int contador=0;
+int pulsador=7;
+int unidades=9;
+int decena=8;
+int centena=6;
+int cont_unidades=0;
+int cont_decena=0;
+int cont_centena=0;
+
+void setup() {
+  // put your setup code here, to run once:
+
+pinMode(A,OUTPUT);
+pinMode(B,OUTPUT);
+pinMode(C,OUTPUT);
+pinMode(D,OUTPUT);
+pinMode(pulsador,INPUT);
+pinMode(unidades,OUTPUT);
+pinMode(decena,OUTPUT);
+pinMode(centena,OUTPUT);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:}
+
+if(contador<999){
+  contador++;
+
+      cont_centena=(contador/100);
+      digitalWrite(centena,HIGH);
+      digitalWrite(unidades,LOW);
+      digitalWrite(decena,LOW);
+      dis(cont_centena);
+      delay(50);
+      cont_decena=(contador%100)/10;              //contador/10;
+      digitalWrite(centena,LOW);
+      digitalWrite(unidades, LOW);
+      digitalWrite(decena,HIGH);
+      dis(cont_decena);
+      delay(50);
+      cont_unidades=((contador%100)%10);
+      digitalWrite(centena,LOW);
+      digitalWrite(unidades, HIGH);
+      digitalWrite(decena,LOW);
+      dis(cont_unidades);
+      delay(50);
+    }
+    else
+    {
+    contador=0;
+    }
+}
+
+  /*if(digitalRead(pulsador)==HIGH){
+    delay(200);
+    if(contador<10){
+      contador++;
+    }
+    else{
+    contador=0;
+    }
+  }*/
+
+  void dis(int numero){
+      switch(numero){
+        case 0:
+        // 0
+  digitalWrite(A,LOW);
+  digitalWrite(B,LOW);
+  digitalWrite(C,LOW);
+  digitalWrite(D,LOW);
+  delay(200);
+        break;
+        case 1:
+         // 1
+  digitalWrite(A,HIGH);
+  digitalWrite(B,LOW);
+  digitalWrite(C,LOW);
+  digitalWrite(D,LOW);
+  delay(200);
+        break;
+        case 2:
+        // 2
+  digitalWrite(A,LOW);
+  digitalWrite(B,HIGH);
+  digitalWrite(C,LOW);
+  digitalWrite(D,LOW);
+  delay(200);
+        break;
+        case 3:
+        // 3
+  digitalWrite(A,HIGH);
+  digitalWrite(B,HIGH);
+  digitalWrite(C,LOW);
+  digitalWrite(D,LOW);
+  delay(200);
+        break;
+        case 4:
+         // 4
+  digitalWrite(A,LOW);
+  digitalWrite(B,LOW);
+  digitalWrite(C,HIGH);
+  digitalWrite(D,LOW);
+  delay(200);
+        break;
+        case 5:
+         // 5
+  digitalWrite(A,HIGH);
+  digitalWrite(B,LOW);
+  digitalWrite(C,HIGH);
+  digitalWrite(D,LOW);
+  delay(200);
+        break;
+        case 6:
+         // 6
+  digitalWrite(A,LOW);
+  digitalWrite(B,HIGH);
+  digitalWrite(C,HIGH);
+  digitalWrite(D,LOW);
+  delay(200);
+        break;
+        case 7:
+         // 7
+  digitalWrite(A,HIGH);
+  digitalWrite(B,HIGH);
+  digitalWrite(C,HIGH);
+  digitalWrite(D,LOW);
+  delay(200);
+        break;
+        case 8:
+ // 8
+  digitalWrite(A,LOW);
+  digitalWrite(B,LOW);
+  digitalWrite(C,LOW);
+  digitalWrite(D,HIGH);
+  delay(200);
+        break;
+        case 9:
+        // 9
+  digitalWrite(A,HIGH);
+  digitalWrite(B,LOW);
+  digitalWrite(C,LOW);
+  digitalWrite(D,HIGH);
+  delay(200);
+        break;
+      }
+    }
+ 
